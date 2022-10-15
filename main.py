@@ -24,7 +24,7 @@ try:
     alexNet_model.compile(loss='sparse_categorical_crossentropy', optimizer=tf.optimizers.SGD(lr=0.02),
                           metrics=['accuracy'])
     # alexNet_model.summary()
-    history = alexNet_model.fit(x_train, y_train, epochs=EPOCHS, verbose=False)
+    history = alexNet_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=False)
     # To print the loss and accuracy graphs
     performance.plot_performance(history, 'AlexNet-plot')
     score = alexNet_model.evaluate(x_test)
@@ -39,7 +39,7 @@ except:
 leNet5_model = LeNet5.LeNet5(num_classes).model
 leNet5_model.compile(loss='sparse_categorical_crossentropy', optimizer=tf.optimizers.SGD(lr=0.02), metrics=['accuracy'])
 # leNet5_model.summary()
-history = leNet5_model.fit(x_train, y_train, epochs=EPOCHS, verbose=False)
+history = leNet5_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=False)
 performance.plot_performance(history, 'LeNet5-plot')
 score = leNet5_model.evaluate(x_test)
 f = open("results.txt", "a")
@@ -48,7 +48,7 @@ f.close()
 
 vgg_model = Vgg19.Vgg19(num_classes).model
 vgg_model.compile(loss='sparse_categorical_crossentropy', optimizer=tf.optimizers.SGD(lr=0.02), metrics=['accuracy'])
-history = vgg_model.fit(x_train, y_train, epochs=EPOCHS, verbose=False)
+history = vgg_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=False)
 performance.plot_performance(history, 'Vgg19-plot')
 score = vgg_model.evaluate(x_test)
 f = open("results.txt", "a")

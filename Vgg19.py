@@ -10,7 +10,7 @@ class Vgg19:
 
         self.model = keras.Sequential(
             [
-                VGG19(input_shape=(28, 28), include_top=False),  # weights='imagenet'
+                VGG19(input_shape=(28, 28, 1), include_top=False),  # weights='imagenet'
                 layers.GlobalAveragePooling2D(),
                 layers.Dense(500, activation=relu),
                 layers.Dense(500, activation=relu),

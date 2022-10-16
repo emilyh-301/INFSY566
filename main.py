@@ -19,16 +19,6 @@ assert y_test.shape == (10000,)
 input_size = (28, 28, 1)
 EPOCHS = 50
 
-# VGG19
-vgg_model = Vgg19.Vgg19(num_classes).model
-vgg_model.compile(loss='sparse_categorical_crossentropy', optimizer=tf.optimizers.SGD(lr=0.02), metrics=['accuracy'])
-history = vgg_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=False)
-
-performance.plot_performance(history, 'Vgg19-plot')
-score = vgg_model.evaluate(x_test)
-f = open("results.txt", "a")
-f.write("Test Loss for Vgg19: " + str(score[0]) + "\nTest Accuracy for Vgg19: " + str(score[1]) + "\n")
-f.close()
 
 # AlexNet
 try:
@@ -62,7 +52,16 @@ f = open("results.txt", "a")
 f.write("Test Loss for LeNet5: " + str(score[0]) + "\nTest Accuracy for LeNet5: " + str(score[1]) + "\n")
 f.close()
 
+# VGG19
+vgg_model = Vgg19.Vgg19(num_classes).model
+vgg_model.compile(loss='sparse_categorical_crossentropy', optimizer=tf.optimizers.SGD(lr=0.02), metrics=['accuracy'])
+history = vgg_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=False)
 
+performance.plot_performance(history, 'Vgg19-plot')
+score = vgg_model.evaluate(x_test)
+f = open("results.txt", "a")
+f.write("Test Loss for Vgg19: " + str(score[0]) + "\nTest Accuracy for Vgg19: " + str(score[1]) + "\n")
+f.close()
 
 leNet5_model.save('leNet5-model')
 vgg_model.save('vgg-model')

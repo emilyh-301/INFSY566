@@ -24,5 +24,5 @@ def plot_performance(model_history, title):
     ax2.set_ylabel('Loss')
     ax2.set_xlabel('Epoch')
     ax2.legend(['train', 'validation'], loc='upper right')
-    plt.show()
+    #plt.show()
     plt.savefig(title)

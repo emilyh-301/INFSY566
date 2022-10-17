@@ -18,7 +18,6 @@ assert x_train.shape == (60000, 28, 28)
 assert x_test.shape == (10000, 28, 28)
 assert y_train.shape == (60000,)
 assert y_test.shape == (10000,)
-print(y_test)
 x_train = x_train / 255.0
 x_test = x_test / 255.0
 input_size = (28, 28, 1)
@@ -50,21 +49,21 @@ except:
     f.close()
 
 # LeNet
-try:
-    leNet5_model = LeNet5.LeNet5(num_classes).model
-    leNet5_model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-    # leNet5_model.summary()
-    history = leNet5_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=False)
 
-    performance.plot_performance(history, 'LeNet5-plot')
-    score = leNet5_model.evaluate(x_test, y_test)
-    f = open("results.txt", "a")
-    f.write("Test Loss for LeNet5: " + str(score[0]) + "\nTest Accuracy for LeNet5: " + str(score[1]) + "\n")
-    f.close()
-except:
-    f = open("results.txt", "a")
-    f.write("LeNet threw an error" + "\n")
-    f.close()
+leNet5_model = LeNet5.LeNet5(num_classes).model
+leNet5_model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+# leNet5_model.summary()
+history = leNet5_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=False)
+
+performance.plot_performance(history, 'LeNet5-plot')
+score = leNet5_model.evaluate(x_test, y_test)
+f = open("results.txt", "a")
+f.write("Test Loss for LeNet5: " + str(score[0]) + "\nTest Accuracy for LeNet5: " + str(score[1]) + "\n")
+f.close()
+
+f = open("results.txt", "a")
+f.write("LeNet threw an error" + "\n")
+f.close()
 
 # VGG19
 try:

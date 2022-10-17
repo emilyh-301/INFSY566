@@ -81,5 +81,5 @@ except:
     f.write("Vgg19 threw an error" + "\n")
     f.close()
 
-leNet5_model.save('leNet5-model')
-vgg_model.save('vgg-model')
+#leNet5_model.save('leNet5-model')
+#vgg_model.save('vgg-model')

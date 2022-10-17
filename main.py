@@ -17,8 +17,8 @@ assert x_test.shape == (10000, 28, 28)
 assert y_train.shape == (60000,)
 assert y_test.shape == (10000,)
 print(y_test)
-train_images = train_images / 255.0
-test_images = test_images / 255.0
+x_train = x_train / 255.0
+x_test = x_test / 255.0
 input_size = (28, 28, 1)
 
 # constants

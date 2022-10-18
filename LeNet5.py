@@ -15,7 +15,9 @@ class LeNet5:
             layers.AveragePooling2D(),
             layers.Flatten(),
             layers.Dense(units=120, activation='relu'),
+            layers.Dropout(.5),
             layers.Dense(units=84, activation='relu'),
+            layers.Dropout(.5),
             layers.Dense(units=num_classes, activation='softmax')
         ])
 

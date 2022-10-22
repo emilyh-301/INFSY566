@@ -7,6 +7,7 @@ import performance
 import AlexNet
 import LeNet5
 import Vgg19
+import WatermelonNet
 
 loss_funcs = []
 opt_funcs = []
@@ -62,6 +63,7 @@ score = vgg_model.evaluate(x_test)
 f = open("results.txt", "a")
 f.write("Test Loss for Vgg19: " + str(score[0]) + "\nTest Accuracy for Vgg19: " + str(score[1]) + "\n")
 f.close()
+
 
 leNet5_model.save('leNet5-model')
 vgg_model.save('vgg-model')

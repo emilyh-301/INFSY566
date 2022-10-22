@@ -3,8 +3,10 @@
 # Project for INFSY 566
 
 import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+# os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import tensorflow as tf
+
+import WatermelonNet
 import performance
 import AlexNet
 import LeNet5
@@ -28,6 +30,22 @@ num_classes = 10
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
                'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
+# Watermelon
+try:
+    watermelon_model = WatermelonNet.WatermelonNet(num_classes).model
+    watermelon_model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+    # watermelon_model.summary()
+    history = watermelon_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=False)
+    performance.plot_performance(history, 'Watermelon-plot')
+    score = watermelon_model.evalute(x_test, y_test)
+    f = open("results.txt", "a")
+    f.write("Test Loss for WatermelonNet: " + str(score[0]) + "\nTest Accuracy for WatermelonNet: " + str(score[1]) + "\n")
+    f.close()
+    watermelon_model.save('watermelon-model')
+except:
+    f = open("results.txt", "a")
+    f.write("Watermelon threw an error" + "\n")
+    f.close()
 
 # AlexNet
 try:
@@ -49,21 +67,22 @@ except:
     f.close()
 
 # LeNet
+try:
+    leNet5_model = LeNet5.LeNet5(num_classes).model
+    leNet5_model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+    # leNet5_model.summary()
+    history = leNet5_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=False)
 
-leNet5_model = LeNet5.LeNet5(num_classes).model
-leNet5_model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-# leNet5_model.summary()
-history = leNet5_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=False)
-
-performance.plot_performance(history, 'LeNet5-plot')
-score = leNet5_model.evaluate(x_test, y_test)
-f = open("results.txt", "a")
-f.write("Test Loss for LeNet5: " + str(score[0]) + "\nTest Accuracy for LeNet5: " + str(score[1]) + "\n")
-f.close()
-
-f = open("results.txt", "a")
-f.write("LeNet threw an error" + "\n")
-f.close()
+    performance.plot_performance(history, 'LeNet5-plot')
+    score = leNet5_model.evaluate(x_test, y_test)
+    f = open("results.txt", "a")
+    f.write("Test Loss for LeNet5: " + str(score[0]) + "\nTest Accuracy for LeNet5: " + str(score[1]) + "\n")
+    f.close()
+    leNet5_model.save('leNet5_model')
+except:
+    f = open("results.txt", "a")
+    f.write("LeNet threw an error" + "\n")
+    f.close()
 
 # VGG19
 try:
@@ -82,5 +101,5 @@ except:
     f.write("Vgg19 threw an error" + "\n")
     f.close()
 
-#leNet5_model.save('leNet5-model')
+
 #vgg_model.save('vgg-model')

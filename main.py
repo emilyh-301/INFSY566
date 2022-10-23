@@ -52,7 +52,7 @@ watermelon_model.save('watermelon-model')
 alexNet_model = AlexNet.AlexNet(num_classes).model
 alexNet_model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 # alexNet_model.summary()
-history = alexNet_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=False)
+history = alexNet_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=True)
 # To print the loss and accuracy graphs
 performance.plot_performance(history, 'AlexNet-plot')
 score = alexNet_model.evaluate(x_test, y_test)

@@ -24,7 +24,7 @@ assert y_test.shape == (10000,)
 x_train = x_train / 255.0
 x_test = x_test / 255.0
 input_size = (28, 28, 1)
-callback = keras.callbacks.EarlyStopping(monitor='val_loss', min_delta=0, patience=0, verbose=0, mode='auto')
+callback = keras.callbacks.EarlyStopping(monitor='val_accuracy', min_delta=0, patience=0, verbose=0, mode='auto')
 
 # constants
 EPOCHS = 50

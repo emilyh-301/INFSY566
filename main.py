@@ -35,7 +35,7 @@ class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
 watermelon_model = WatermelonNet.WatermelonNet(num_classes).model
 watermelon_model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 # watermelon_model.summary()
-history = watermelon_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=False)
+history = watermelon_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=True)
 performance.plot_performance(history, 'Watermelon-plot')
 score = watermelon_model.evaluate(x_test, y_test)
 f = open("results.txt", "a")
@@ -48,23 +48,23 @@ watermelon_model.save('watermelon-model')
     # f.close()
 
 # AlexNet
-try:
-    alexNet_model = AlexNet.AlexNet(num_classes).model
-    alexNet_model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-    # alexNet_model.summary()
-    history = alexNet_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=False)
-
-    # To print the loss and accuracy graphs
-    performance.plot_performance(history, 'AlexNet-plot')
-    score = alexNet_model.evaluate(x_test, y_test)
-    f = open("results.txt", "a")
-    f.write("Test Loss for AlexNet: " + str(score[0]) + "\nTest Accuracy for AlexNet: " + str(score[1]) + "\n")
-    f.close()
-    alexNet_model.save('alexNet-model')
-except:
-    f = open("results.txt", "a")
-    f.write("AlexNet threw an error" + "\n")
-    f.close()
+# try:
+#     alexNet_model = AlexNet.AlexNet(num_classes).model
+#     alexNet_model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+#     # alexNet_model.summary()
+#     history = alexNet_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=False)
+#
+#     # To print the loss and accuracy graphs
+#     performance.plot_performance(history, 'AlexNet-plot')
+#     score = alexNet_model.evaluate(x_test, y_test)
+#     f = open("results.txt", "a")
+#     f.write("Test Loss for AlexNet: " + str(score[0]) + "\nTest Accuracy for AlexNet: " + str(score[1]) + "\n")
+#     f.close()
+#     alexNet_model.save('alexNet-model')
+# except:
+#     f = open("results.txt", "a")
+#     f.write("AlexNet threw an error" + "\n")
+#     f.close()
 
 # LeNet
 try:

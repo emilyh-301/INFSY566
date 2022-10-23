@@ -48,41 +48,40 @@ watermelon_model.save('watermelon-model')
     # f.close()
 
 # AlexNet
-# try:
-#     alexNet_model = AlexNet.AlexNet(num_classes).model
-#     alexNet_model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-#     # alexNet_model.summary()
-#     history = alexNet_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=False)
-#
-#     # To print the loss and accuracy graphs
-#     performance.plot_performance(history, 'AlexNet-plot')
-#     score = alexNet_model.evaluate(x_test, y_test)
-#     f = open("results.txt", "a")
-#     f.write("Test Loss for AlexNet: " + str(score[0]) + "\nTest Accuracy for AlexNet: " + str(score[1]) + "\n")
-#     f.close()
-#     alexNet_model.save('alexNet-model')
-# except:
-#     f = open("results.txt", "a")
-#     f.write("AlexNet threw an error" + "\n")
-#     f.close()
+
+alexNet_model = AlexNet.AlexNet(num_classes).model
+alexNet_model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+# alexNet_model.summary()
+history = alexNet_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=False)
+# To print the loss and accuracy graphs
+performance.plot_performance(history, 'AlexNet-plot')
+score = alexNet_model.evaluate(x_test, y_test)
+f = open("results.txt", "a")
+f.write("Test Loss for AlexNet: " + str(score[0]) + "\nTest Accuracy for AlexNet: " + str(score[1]) + "\n")
+f.close()
+alexNet_model.save('alexNet-model')
+
+# f = open("results.txt", "a")
+# f.write("AlexNet threw an error" + "\n")
+# f.close()
 
 # LeNet
-try:
-    leNet5_model = LeNet5.LeNet5(num_classes).model
-    leNet5_model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-    # leNet5_model.summary()
-    history = leNet5_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=False)
-
-    performance.plot_performance(history, 'LeNet5-plot')
-    score = leNet5_model.evaluate(x_test, y_test)
-    f = open("results.txt", "a")
-    f.write("Test Loss for LeNet5: " + str(score[0]) + "\nTest Accuracy for LeNet5: " + str(score[1]) + "\n")
-    f.close()
-    leNet5_model.save('leNet5_model')
-except:
-    f = open("results.txt", "a")
-    f.write("LeNet threw an error" + "\n")
-    f.close()
+# try:
+#     leNet5_model = LeNet5.LeNet5(num_classes).model
+#     leNet5_model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+#     # leNet5_model.summary()
+#     history = leNet5_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=False)
+#
+#     performance.plot_performance(history, 'LeNet5-plot')
+#     score = leNet5_model.evaluate(x_test, y_test)
+#     f = open("results.txt", "a")
+#     f.write("Test Loss for LeNet5: " + str(score[0]) + "\nTest Accuracy for LeNet5: " + str(score[1]) + "\n")
+#     f.close()
+#     leNet5_model.save('leNet5_model')
+# except:
+#     f = open("results.txt", "a")
+#     f.write("LeNet threw an error" + "\n")
+#     f.close()
 
 # VGG19
 # try:

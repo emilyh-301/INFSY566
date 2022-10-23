@@ -31,21 +31,21 @@ class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
                'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
 # Watermelon
-try:
-    watermelon_model = WatermelonNet.WatermelonNet(num_classes).model
-    watermelon_model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-    # watermelon_model.summary()
-    history = watermelon_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=False)
-    performance.plot_performance(history, 'Watermelon-plot')
-    score = watermelon_model.evalute(x_test, y_test)
-    f = open("results.txt", "a")
-    f.write("Test Loss for WatermelonNet: " + str(score[0]) + "\nTest Accuracy for WatermelonNet: " + str(score[1]) + "\n")
-    f.close()
-    watermelon_model.save('watermelon-model')
-except:
-    f = open("results.txt", "a")
-    f.write("Watermelon threw an error" + "\n")
-    f.close()
+
+watermelon_model = WatermelonNet.WatermelonNet(num_classes).model
+watermelon_model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+# watermelon_model.summary()
+history = watermelon_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=False)
+performance.plot_performance(history, 'Watermelon-plot')
+score = watermelon_model.evalute(x_test, y_test)
+f = open("results.txt", "a")
+f.write("Test Loss for WatermelonNet: " + str(score[0]) + "\nTest Accuracy for WatermelonNet: " + str(score[1]) + "\n")
+f.close()
+watermelon_model.save('watermelon-model')
+
+    # f = open("results.txt", "a")
+    # f.write("Watermelon threw an error" + "\n")
+    # f.close()
 
 # AlexNet
 try:
@@ -85,21 +85,21 @@ except:
     f.close()
 
 # VGG19
-try:
-    vgg_model = Vgg19.Vgg19(num_classes).model
-    vgg_model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-    # vgg_model.summary()
-    history = vgg_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=False)
-
-    performance.plot_performance(history, 'Vgg19-plot')
-    score = vgg_model.evaluate(x_test, y_test)
-    f = open("results.txt", "a")
-    f.write("Test Loss for Vgg19: " + str(score[0]) + "\nTest Accuracy for Vgg19: " + str(score[1]) + "\n")
-    f.close()
-except:
-    f = open("results.txt", "a")
-    f.write("Vgg19 threw an error" + "\n")
-    f.close()
+# try:
+#     vgg_model = Vgg19.Vgg19(num_classes).model
+#     vgg_model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+#     # vgg_model.summary()
+#     history = vgg_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=False)
+#
+#     performance.plot_performance(history, 'Vgg19-plot')
+#     score = vgg_model.evaluate(x_test, y_test)
+#     f = open("results.txt", "a")
+#     f.write("Test Loss for Vgg19: " + str(score[0]) + "\nTest Accuracy for Vgg19: " + str(score[1]) + "\n")
+#     f.close()
+# except:
+#     f = open("results.txt", "a")
+#     f.write("Vgg19 threw an error" + "\n")
+#     f.close()
 
 
 #vgg_model.save('vgg-model')

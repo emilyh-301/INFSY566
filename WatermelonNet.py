@@ -12,7 +12,7 @@ class WatermelonNet:
             layers.Conv2D(filters=12, kernel_size=(2, 2), activation='sigmoid'),
             #layers.Dropout(.25),
             layers.MaxPooling2D(),
-            layers.Conv2D(filters=24, kernel_size=(2,2), activation='sigmoid'),
+            layers.Conv2D(filters=12, kernel_size=(2,2), activation='sigmoid'),
             #layers.Dropout(.25),
             layers.MaxPooling2D(),
             layers.Flatten(),

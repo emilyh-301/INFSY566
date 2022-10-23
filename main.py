@@ -24,7 +24,7 @@ assert y_test.shape == (10000,)
 x_train = x_train / 255.0
 x_test = x_test / 255.0
 input_size = (28, 28, 1)
-callback = keras.callbacks.EarlyStopping(monitor='val_accuracy', min_delta=0, patience=0, verbose=0, mode='auto')
+callback = keras.callbacks.EarlyStopping(monitor='val_accuracy', min_delta=0, patience=2, verbose=0, mode='auto')
 
 # constants
 EPOCHS = 50
@@ -37,7 +37,7 @@ class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
 watermelon_model = WatermelonNet.WatermelonNet(num_classes).model
 watermelon_model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 # watermelon_model.summary()
-history = watermelon_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, callbacks=[callback], verbose=True)
+history = watermelon_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=True)
 performance.plot_performance(history, 'Watermelon-plot')
 score = watermelon_model.evaluate(x_test, y_test)
 f = open("results.txt", "a")

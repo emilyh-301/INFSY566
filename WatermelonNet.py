@@ -14,10 +14,10 @@ class WatermelonNet:
             layers.Conv2D(filters=60, kernel_size=(2,2), activation='sigmoid'),
             layers.MaxPooling2D(),
             layers.Flatten(),
-            layers.Dense(units=120, activation='relu'),
+            layers.Dense(units=160, activation='sigmoid'),
             layers.Dropout(.25),
-            layers.Dense(units=84, activation='relu'),
+            layers.Dense(units=100, activation='sigmoid'),
             layers.Dropout(.25),
-            layers.Dense(units=num_classes, activation='sigmoid')
+            layers.Dense(units=num_classes, activation='softmax')
         ])
 

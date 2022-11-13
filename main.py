@@ -6,8 +6,8 @@
 #os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import tensorflow as tf
 from tensorflow import keras
-tf.config.list_physical_devices("GPU")
-[PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
+#tf.config.list_physical_devices("GPU")
+#[PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 

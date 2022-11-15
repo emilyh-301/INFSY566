@@ -27,9 +27,9 @@ class AlexNet:
             keras.layers.BatchNormalization(),
             #keras.layers.MaxPool2D(pool_size=(3,3), strides=(2,2)),
             keras.layers.Flatten(),
-            keras.layers.Dense(1000, activation='relu'),
+            keras.layers.Dense(500, activation='relu'),
             keras.layers.Dropout(0.5),
-            keras.layers.Dense(1000, activation='relu'),
+            keras.layers.Dense(200, activation='relu'),
             keras.layers.Dropout(0.5),
             keras.layers.Dense(num_classes, activation='softmax')
         ])

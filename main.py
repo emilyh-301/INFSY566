@@ -66,7 +66,7 @@ score = alexNet_model.evaluate(x_test, y_test)
 f = open("results.txt", "a")
 f.write("Test Loss for AlexNet: " + str(score[0]) + "\nTest Accuracy for AlexNet: " + str(score[1]) + "\n")
 f.close()
-alexNet_model.save('alexNet-model')
+alexNet_model.save('alexNet-model-500-200')
 #except:
 #    print('alex net error')
 #    f = open("results.txt", "a")

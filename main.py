@@ -55,23 +55,23 @@ class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
     # f.close()
 
 # AlexNet
-try:
-    alexNet_model = AlexNet.AlexNet(num_classes).model
-    alexNet_model.compile(loss='sparse_categorical_crossentropy', batch_size=8, optimizer='adam', metrics=['accuracy'])
-    # alexNet_model.summary()
-    history = alexNet_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=True)
-    # To print the loss and accuracy graphs
-    performance.plot_performance(history, 'AlexNet-plot')
-    score = alexNet_model.evaluate(x_test, y_test)
-    f = open("results.txt", "a")
-    f.write("Test Loss for AlexNet: " + str(score[0]) + "\nTest Accuracy for AlexNet: " + str(score[1]) + "\n")
-    f.close()
-    alexNet_model.save('alexNet-model')
-except:
-    print('alex net error')
-    f = open("results.txt", "a")
-    f.write("AlexNet threw an error" + "\n")
-    f.close()
+# try:
+alexNet_model = AlexNet.AlexNet(num_classes).model
+alexNet_model.compile(loss='sparse_categorical_crossentropy', batch_size=8, optimizer='adam', metrics=['accuracy'])
+# alexNet_model.summary()
+history = alexNet_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=True)
+# To print the loss and accuracy graphs
+performance.plot_performance(history, 'AlexNet-plot')
+score = alexNet_model.evaluate(x_test, y_test)
+f = open("results.txt", "a")
+f.write("Test Loss for AlexNet: " + str(score[0]) + "\nTest Accuracy for AlexNet: " + str(score[1]) + "\n")
+f.close()
+alexNet_model.save('alexNet-model')
+#except:
+#    print('alex net error')
+#    f = open("results.txt", "a")
+#    f.write("AlexNet threw an error" + "\n")
+#    f.close()
 
 # LeNet
 # try:

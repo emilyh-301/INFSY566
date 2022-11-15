@@ -24,7 +24,7 @@ class AlexNet:
             keras.layers.Conv2D(filters=384, kernel_size=(2,2), strides=(1,1), activation='relu', padding="same"),
             keras.layers.BatchNormalization(),
             keras.layers.Conv2D(filters=256, kernel_size=(2,2), strides=(1,1), activation='relu', padding="same"),
-            #keras.layers.BatchNormalization(),
+            keras.layers.BatchNormalization(),
             keras.layers.MaxPool2D(pool_size=(3,3), strides=(2,2)),
             keras.layers.Flatten(),
             keras.layers.Dense(1000, activation='relu'),

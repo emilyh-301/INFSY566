@@ -32,7 +32,7 @@ input_size = (28, 28, 1)
 callback = keras.callbacks.EarlyStopping(monitor='val_accuracy', min_delta=0, patience=2, verbose=0, mode='auto')
 
 # constants
-EPOCHS = 50
+EPOCHS = 29
 num_classes = 10
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
                'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']

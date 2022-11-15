@@ -68,9 +68,10 @@ try:
     f.close()
     alexNet_model.save('alexNet-model')
 except:
-     f = open("results.txt", "a")
-     f.write("AlexNet threw an error" + "\n")
-     f.close()
+    print('alex net error')
+    f = open("results.txt", "a")
+    f.write("AlexNet threw an error" + "\n")
+    f.close()
 
 # LeNet
 # try:

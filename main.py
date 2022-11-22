@@ -61,7 +61,7 @@ alexNet_model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', 
 # alexNet_model.summary()
 history = alexNet_model.fit(x_train, y_train, validation_split=.2, epochs=EPOCHS, verbose=True)
 # To print the loss and accuracy graphs
-performance.plot_performance(history, 'AlexNet-plot-410-150')
+performance.plot_performance(history, 'AlexNet-plot-256-100')
 score = alexNet_model.evaluate(x_test, y_test)
 f = open("results.txt", "a")
 f.write("Test Loss for AlexNet: " + str(score[0]) + "\nTest Accuracy for AlexNet: " + str(score[1]) + "\n")

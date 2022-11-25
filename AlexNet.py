@@ -14,23 +14,23 @@ class AlexNet:
 
         self.model = keras.models.Sequential([
             keras.layers.Conv2D(filters=96, kernel_size=(6,6), strides=(2,2), activation='relu', input_shape=(28, 28, 1)),
-            keras.layers.BatchNormalization(),
+            #keras.layers.BatchNormalization(),
             keras.layers.MaxPool2D(pool_size=(3,3), strides=(2,2)),
             keras.layers.Conv2D(filters=155, kernel_size=(4,4), strides=(1,1), activation='relu', padding="same"),
-            keras.layers.BatchNormalization(),
+            #keras.layers.BatchNormalization(),
             keras.layers.MaxPool2D(pool_size=(3,3), strides=(2,2)),
             keras.layers.Conv2D(filters=280, kernel_size=(2,2), strides=(1,1), activation='relu', padding="same"),
-            keras.layers.BatchNormalization(),
+            #keras.layers.BatchNormalization(),
             keras.layers.Conv2D(filters=280, kernel_size=(2,2), strides=(1,1), activation='relu', padding="same"),
-            keras.layers.BatchNormalization(),
+            #keras.layers.BatchNormalization(),
             keras.layers.Conv2D(filters=155, kernel_size=(2,2), strides=(1,1), activation='relu', padding="same"),
-            keras.layers.BatchNormalization(),
+            #keras.layers.BatchNormalization(),
             #keras.layers.MaxPool2D(pool_size=(3,3), strides=(2,2)),
             keras.layers.Flatten(),
             keras.layers.Dense(190, activation='relu'),
-            keras.layers.Dropout(0.2),
+            keras.layers.Dropout(0.5),
             keras.layers.Dense(80, activation='relu'),
-            keras.layers.Dropout(0.2),
+            keras.layers.Dropout(0.5),
             keras.layers.Dense(num_classes, activation='softmax')
         ])
 

@@ -18,11 +18,13 @@ def con_matrix2(preds, labels, title):
     predictions = get_pred(preds)
     # Create confusion matrix and normalizes it over predicted (columns)
     result = confusion_matrix(y_true=labels, y_pred=predictions, normalize='pred')
+    f = open(title + ".txt", "a")
     for row in range(len(result)):
         for col in range(10):
             result[row][col] = round(result[row][col], 2)
-            print(str(result[row][col]) + '\t')
-        print('\n')
+            f.write(str(result[row][col]) + '\t')
+        f.write('\n')
+    f.close()
     plot(result, title)
 
 def plot(array, title):

@@ -17,7 +17,7 @@ def con_matrix1(preds, labels):
 def con_matrix2(preds, labels, title):
     predictions = []
     for x in preds:
-        predictions.append(x.index(np.argmax(x)))
+        predictions.append(np.where(x == np.argmax(x)))
     #y_test = np.argmax(labels, axis=1)
     # Create confusion matrix and normalizes it over predicted (columns)
     result = confusion_matrix(y_true=y_test, y_pred=predictions, normalize='pred')

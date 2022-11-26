@@ -35,6 +35,7 @@ def get_pred(preds):
         result.append(a)
     print(a)
     print(a[0])
+    print(a[0][0])
     return result
 
 model = keras.models.load_model('alexNet-model')

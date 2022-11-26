@@ -15,10 +15,10 @@ def con_matrix1(preds, labels):
     print(confusion_matrix(y_true=labels, y_pred=preds, normalize='pred'))
 
 def con_matrix2(preds, labels, title):
-    preds = np.argmax(preds)
+    predictions = np.argmax(preds)
     #y_test = np.argmax(labels, axis=1)
     # Create confusion matrix and normalizes it over predicted (columns)
-    result = confusion_matrix(y_test, preds, normalize='pred')
+    result = confusion_matrix(y_true=y_test, y_preds=predictions, normalize='pred')
     plot(result, title)
 
 def plot(array, title):

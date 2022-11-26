@@ -18,13 +18,14 @@ def con_matrix2(preds, labels, title):
     predictions = get_pred(preds)
     #y_test = np.argmax(labels, axis=1)
     # Create confusion matrix and normalizes it over predicted (columns)
-    result = confusion_matrix(y_true=y_test, y_pred=predictions, normalize='pred')
+    result = confusion_matrix(y_true=labels, y_pred=predictions, normalize='pred')
+    print(result)
     plot(result, title)
 
 def plot(array, title):
     df_cm = pd.DataFrame(array, index=class_names, columns=class_names)
-    # plt.figure(figsize=(10,10))
-    sn.set(font_scale=1.4) # for label size
+    # plt.figure(figsize=(50,50))
+    sn.set(font_scale=1) # for label size
     sn.heatmap(df_cm, annot=True, annot_kws={"size": 12}) # font size
     plt.savefig(title)
 

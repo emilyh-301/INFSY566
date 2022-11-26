@@ -31,7 +31,7 @@ def plot(array, title):
 def get_pred(preds):
     result = []
     for x in preds:
-        a = x.index(max(x))
+        a = np.where(x == x.max())
         result.append(a)
     return result
 

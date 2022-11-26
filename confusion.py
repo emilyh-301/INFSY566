@@ -9,9 +9,10 @@ import matplotlib.pyplot as plt
 x_test = x_test / 255
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
                'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
+print(y_test[20:220])
 
 def con_matrix1(preds, labels):
-    print(confusion_matrix(labels, preds, normalize='pred'))
+    print(confusion_matrix(y_true=labels, y_pred=preds, normalize='pred'))
 
 def con_matrix2(preds, labels, title):
     preds = np.argmax(preds)

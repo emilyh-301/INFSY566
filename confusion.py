@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 x_test = x_test / 255
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
                'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
-print(y_test[20:220])
+# print(y_test[20:220])
 
 def con_matrix1(preds, labels):
     print(confusion_matrix(y_true=labels, y_pred=preds, normalize='pred'))
@@ -18,7 +18,7 @@ def con_matrix2(preds, labels, title):
     predictions = np.argmax(preds)
     #y_test = np.argmax(labels, axis=1)
     # Create confusion matrix and normalizes it over predicted (columns)
-    result = confusion_matrix(y_true=y_test, y_preds=predictions, normalize='pred')
+    result = confusion_matrix(y_true=y_test, y_pred=predictions, normalize='pred')
     plot(result, title)
 
 def plot(array, title):
@@ -32,7 +32,7 @@ def plot(array, title):
 
 model = keras.models.load_model('alexNet-model')
 preds = model.predict(x_test)
-print(preds[20:220])
+# print(preds[20:220])
 con_matrix2(preds, y_test, 'alex-confusion')
 print('\n\n')
 

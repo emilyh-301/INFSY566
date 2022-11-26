@@ -20,7 +20,7 @@ def con_matrix2(preds, labels, title):
     # Create confusion matrix and normalizes it over predicted (columns)
     result = confusion_matrix(y_true=labels, y_pred=predictions, normalize='pred')
     for row in range(len(result)):
-        for col in range(len(row)):
+        for col in range(10):
             result[row][col] = round(result[row][col], 2)
     plot(result, title)
 

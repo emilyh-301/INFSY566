@@ -15,12 +15,7 @@ def con_matrix1(preds, labels):
     print(confusion_matrix(y_true=labels, y_pred=preds, normalize='pred'))
 
 def con_matrix2(preds, labels, title):
-    predictions = []
-    for x in preds:
-        predictions.append(np.where(x == np.argmax(x)))
-    print(len(y_test))
-    print(len(predictions))
-    print(predictions[:100])
+    predictions = get_pred(preds)
     #y_test = np.argmax(labels, axis=1)
     # Create confusion matrix and normalizes it over predicted (columns)
     result = confusion_matrix(y_true=y_test, y_pred=predictions, normalize='pred')
@@ -33,7 +28,12 @@ def plot(array, title):
     sn.heatmap(df_cm, annot=True, annot_kws={"size": 12}) # font size
     plt.savefig(title)
 
-# plt.show
+def get_pred(preds):
+    result = []
+    for x in preds:
+        a = x.index(max(x))
+        result.append(a)
+    return result
 
 model = keras.models.load_model('alexNet-model')
 preds = model.predict(x_test)

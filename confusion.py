@@ -16,14 +16,13 @@ def con_matrix1(preds, labels):
 
 def con_matrix2(preds, labels, title):
     predictions = get_pred(preds)
-    #y_test = np.argmax(labels, axis=1)
     # Create confusion matrix and normalizes it over predicted (columns)
     result = confusion_matrix(y_true=labels, y_pred=predictions, normalize='pred')
-    print(result)
     for row in range(len(result)):
         for col in range(10):
             result[row][col] = round(result[row][col], 2)
-    print(result)
+            print(str(result[row][col]) + '\t')
+        print('\n')
     plot(result, title)
 
 def plot(array, title):
@@ -38,23 +37,19 @@ def get_pred(preds):
     for x in preds:
         a = np.where(x == x.max())
         result.append(a[0][0])
-    # print(a)
-    # print(a[0])
-    # print(a[0][0])
     return result
 
-# model = keras.models.load_model('alexNet-model')
-# preds = model.predict(x_test)
-# # print(preds[20:220])
-# con_matrix2(preds, y_test, 'alex-confusion')
-# print('\n\n')
+model = keras.models.load_model('alexNet-model')
+preds = model.predict(x_test)
+con_matrix2(preds, y_test, 'alex-confusion')
+print('\n\n')
 
 model = keras.models.load_model('leNet5_model')
 preds = model.predict(x_test)
 con_matrix2(preds, y_test, 'lenet-confusion')
-print('\n2\n\n')
+print('\n\n')
 
-# model = keras.models.load_model('watermelon-model')
-# preds = model.predict(x_test)
-# con_matrix2(preds, y_test, 'watermelon-confusion')
-# print('\n\n')
+model = keras.models.load_model('watermelon-model')
+preds = model.predict(x_test)
+con_matrix2(preds, y_test, 'watermelon-confusion')
+print('\n\n')

@@ -14,8 +14,8 @@ def con_matrix1(preds, labels):
     print(confusion_matrix(labels, preds, normalize='pred'))
 
 def con_matrix2(preds, labels, title):
-    preds = np.argmax(preds, axis=1)
-    y_test = np.argmax(labels, axis=1)
+    preds = np.argmax(preds)
+    #y_test = np.argmax(labels, axis=1)
     # Create confusion matrix and normalizes it over predicted (columns)
     result = confusion_matrix(y_test, preds, normalize='pred')
     plot(result, title)

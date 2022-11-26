@@ -33,6 +33,7 @@ def get_pred(preds):
     for x in preds:
         a = np.where(x == x.max())
         result.append(a)
+    print(a)
     return result
 
 model = keras.models.load_model('alexNet-model')

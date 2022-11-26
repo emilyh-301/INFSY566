@@ -1,6 +1,8 @@
 from tensorflow import keras
 from keras import layers
 
+# Note, in the paper I refer to this model as EmilyNet.
+
 class WatermelonNet:
 
     def __init__(self, num_classes):

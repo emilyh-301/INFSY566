@@ -24,7 +24,7 @@ def con_matrix2(preds, labels, title):
     plot(result, title)
 
 def plot(array, title):
-    df_cm = pd.DataFrame(array, index=class_names, columns=class_names)
+    df_cm = pd.DataFrame(array, class_names, class_names)
     # plt.figure(figsize=(10,10))
     sn.set(font_scale=1.4) # for label size
     sn.heatmap(df_cm, annot=True, annot_kws={"size": 12}) # font size

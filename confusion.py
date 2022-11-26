@@ -28,10 +28,11 @@ def plot(array, title):
     sn.heatmap(df_cm, annot=True, annot_kws={"size": 12}) # font size
     plt.savefig(title)
 
-plt.show()
+# plt.show
 
 model = keras.models.load_model('alexNet-model')
 preds = model.predict(x_test)
+print(preds[20:220])
 con_matrix2(preds, y_test, 'alex-confusion')
 print('\n\n')
 

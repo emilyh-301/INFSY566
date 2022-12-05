@@ -5,6 +5,8 @@ import seaborn as sn
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# generating the confusion matrices
+
 (x_train, y_train), (x_test, y_test) = keras.datasets.fashion_mnist.load_data()
 x_test = x_test / 255
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',

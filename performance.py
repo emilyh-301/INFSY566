@@ -4,7 +4,7 @@ def plot_performance(model_history, title):
     '''
     Outputs the accuracy and loss graphs for the training history
     :param model_history: the history of the model
-    :return: void, saves the plot as myPlot.png
+    :return: void, saves the plot as <title>.png
     '''
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(20, 10))

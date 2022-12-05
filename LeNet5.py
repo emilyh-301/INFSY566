@@ -8,6 +8,7 @@ class LeNet5:
     '''
     def __init__(self, num_classes):
         self.num_classes = num_classes
+
         self.model = keras.Sequential([
             layers.Conv2D(filters=6, kernel_size=(3, 3), activation='relu', input_shape=(28, 28, 1)),
             layers.AveragePooling2D(),

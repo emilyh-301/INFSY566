@@ -38,7 +38,6 @@ class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
                'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
 # Watermelon
-
 watermelon_model = WatermelonNet.WatermelonNet(num_classes).model
 watermelon_model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 # watermelon_model.summary()
@@ -108,6 +107,4 @@ except:
 #     f = open("results.txt", "a")
 #     f.write("Vgg19 threw an error" + "\n")
 #     f.close()
-
-
 #vgg_model.save('vgg-model')

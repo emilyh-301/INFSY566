@@ -13,7 +13,7 @@ class WatermelonNet:
             layers.MaxPooling2D(),
             layers.Conv2D(filters=42, kernel_size=(2, 2), activation='sigmoid'),
             layers.MaxPooling2D(),
-            layers.Conv2D(filters=64, kernel_size=(2,2), activation='sigmoid'),
+            layers.Conv2D(filters=64, kernel_size=(2, 2), activation='sigmoid'),
             layers.MaxPooling2D(),
             layers.Flatten(),
             layers.Dense(units=200, activation='sigmoid'),

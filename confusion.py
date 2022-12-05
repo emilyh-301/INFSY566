@@ -9,14 +9,10 @@ import matplotlib.pyplot as plt
 x_test = x_test / 255
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
                'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
-# print(y_test[20:220])
-
-def con_matrix1(preds, labels):
-    print(confusion_matrix(y_true=labels, y_pred=preds, normalize='pred'))
 
 def con_matrix2(preds, labels, title):
     predictions = get_pred(preds)
-    # Create confusion matrix and normalizes it over predicted (columns)
+    # Make confusion matrix and normalize it over the predictions (columns)
     result = confusion_matrix(y_true=labels, y_pred=predictions, normalize='pred')
     f = open(title + ".txt", "a")
     for row in range(len(result)):
